@@ -10,7 +10,7 @@ print("d_rate1 is the number of deaths divided by infections")
 print("d_rate2 is the number of deaths divided by recoveries")
 
 # Load the data from the csv file
-data_file_path = 'data/covid19_d_rates.csv'
+data_file_path = 'data/covid19_from_json_d_rates.csv'
 dates, d_rate1s, d_rate2s = [], [], []
 with open(data_file_path) as f:
     reader = csv.DictReader(f)
@@ -18,8 +18,14 @@ with open(data_file_path) as f:
     for row in reader:
         date = datetime.strptime(row['Date'], '%Y-%m-%d')
         dates.append(date)
-        d_rate1s.append(float(row['d_rate1']))
-        d_rate2s.append(float(row['d_rate2']))
+        try:
+            d_rate1s.append(float(row['d_rate1']))
+        except ValueError:
+            d_rate1s.append(None)
+        try:
+            d_rate2s.append(float(row['d_rate2']))
+        except ValueError:
+            d_rate2s.append(None)
 
 # Create the chart
 
