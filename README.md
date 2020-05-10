@@ -1,4 +1,16 @@
 # Python Spring Project | COVID-19 Numbers
+## Going through the Midterm
+### Creating _covid19.csv_
+Downloaded data in _countries-aggregated.csv_ from https://github.com/datasets/covid-19,
+and used _csv_data_cleaner.py_ to convert the data to the desired format for _covid19.csv_.
+### Including the death rates
+Run _calculate_d_rates.py_ to compute the death rates.
+### Plotting a graph
+Run either _plot.py_ or _plot_d_rates.py_ to generate a plot.
+### Getting data from an API
+Use _download_json_data_v2.py_ to download COVID-19 data from an API and save it in _covid19_from_json_v2.csv_.
+The similarly named _download_json_data.py_ is inferior as its API call does not return any recovery numbers at this time.
+Again, calculate death rates using _calculate_d_rates.py_ and plot the graph using either _plot.py_ or _plot_d_rates.py_.
 ## Python Files
 ### _csv_data_cleaner.py_
 Takes data from _countries-aggregated.csv_ and records only the US data from 2020-03-01 to 2020-04-20.

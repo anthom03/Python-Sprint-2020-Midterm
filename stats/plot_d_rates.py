@@ -1,8 +1,9 @@
 """Plots the death rates over time."""
-# Used https://plotly.com/python/line-charts/ for how to set up and style the plotly graph
-import plotly.graph_objects as go
 import csv
 from datetime import datetime
+
+# Used https://plotly.com/python/line-charts/ for how to set up and style the plotly graph
+import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
 # Explain d_rate1 and d_rate2
@@ -10,7 +11,7 @@ print("d_rate1 is the number of deaths divided by infections")
 print("d_rate2 is the number of deaths divided by recoveries")
 
 # Load the data from the csv file
-data_file_path = 'data/covid19_from_json_d_rates.csv'
+data_file_path = 'data/covid19_from_json_v2_d_rates.csv'
 dates, d_rate1s, d_rate2s = [], [], []
 with open(data_file_path) as f:
     reader = csv.DictReader(f)
