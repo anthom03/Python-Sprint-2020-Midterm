@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>COVID Web</title>
+</head>
+<body>
+    <h1>COVID Web</h1>
+    <h3>
+        Welcome to COVID Web! View the graphs by clicking a link below. <br/><br/>
+        <a href="{% url 'web_app:graph' %}">Graph of infections, deaths, and recoveries.</a><br/><br/>
+        <a href="{% url 'web_app:graph_d_rates' %}">Graph of death rates.</a>
+    </h3>
+</body>
+</html>
