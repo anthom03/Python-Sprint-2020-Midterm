@@ -3,6 +3,13 @@
 import plotly.graph_objects as go
 import csv
 from datetime import datetime
+from plotly import offline
+import os
+
+# Where to save the html file
+# Source: https://stackoverflow.com/questions/918154/relative-paths-in-python
+project_path = os.path.realpath('..')
+filename = os.path.join(project_path, "web_app", "templates", "web_app", "graph.html")
 
 # Load the data from the csv file
 data_file_path = 'data/covid19.csv'
@@ -58,4 +65,4 @@ fig.update_yaxes(title_text='Cumulative Totals',
                  tickfont=dict(size=16),
                  range=[0, maximum])
 
-fig.show()
+offline.plot(fig, filename=filename)

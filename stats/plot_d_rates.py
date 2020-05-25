@@ -5,13 +5,20 @@ from datetime import datetime
 # Used https://plotly.com/python/line-charts/ for how to set up and style the plotly graph
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
+from plotly import offline
+import os
+
+# Where to save the html file
+# Source: https://stackoverflow.com/questions/918154/relative-paths-in-python
+project_path = os.path.realpath('..')
+filename = os.path.join(project_path, "web_app", "templates", "web_app", "graph_d_rates.html")
 
 # Explain d_rate1 and d_rate2
 print("d_rate1 is the number of deaths divided by infections")
 print("d_rate2 is the number of deaths divided by recoveries")
 
 # Load the data from the csv file
-data_file_path = 'data/covid19_from_json_v2_d_rates.csv'
+data_file_path = 'data/covid19_d_rates.csv'
 dates, d_rate1s, d_rate2s = [], [], []
 with open(data_file_path) as f:
     reader = csv.DictReader(f)
@@ -56,4 +63,4 @@ fig.update_yaxes(title_text='d_rate2 Scale',
                  tickfont=dict(size=16),
                  secondary_y=True)
 
-fig.show()
+offline.plot(fig, filename=filename)
